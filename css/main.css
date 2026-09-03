@@ -1325,3 +1325,127 @@ body {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
 }
+
+/* =========================================
+   BOTÓN ROMÁNTICO
+   ========================================= */
+
+.love-button-container {
+  position: fixed;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Botón */
+.love-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #ff4f9a,
+    #c44cff,
+    #7b5cff
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 0 15px rgba(255, 79, 154, 0.45),
+    0 0 35px rgba(196, 76, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Brillo exterior */
+.love-button::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #ff6eb4,
+    #d85cff,
+    #8b7aff,
+    #ff6eb4
+  );
+
+  background-size: 300% 100%;
+
+  z-index: -1;
+
+  filter: blur(8px);
+  opacity: 0.6;
+
+  animation: buttonGlow 4s linear infinite;
+}
+
+/* Efecto al pasar el mouse */
+.love-button:hover {
+  transform: translateY(-4px) scale(1.05);
+
+  box-shadow:
+    0 0 20px rgba(255, 79, 154, 0.7),
+    0 0 45px rgba(196, 76, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  filter: brightness(1.15);
+}
+
+/* Efecto al presionar */
+.love-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Animación del brillo */
+@keyframes buttonGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+
+  .love-button-container {
+    top: 11%;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .love-button {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+}
